@@ -300,7 +300,7 @@ trackFutureMinutePrices = (pair) => {
 								+ " B:" + numeral(depth_bids[symbol]).format("0.00") 
 								+ " C:" + close 
 								+ " D:%" + numeral(depth_diff[symbol]).format("0.000") 
-								+ " https://www.binance.com/tradeDetail.html?symbol=" + symbol.slice(0, -3) + "_BTC")
+								+ " https://www.binance.com/tradeDetail.html?symbol=" + symbol.replace("BTC","_BTC"))
 							if (sound_alert) load('./alert.mp3').then(play)
 							if ( typeof tracked_data[symbol] === 'undefined' ) {
 								tracked_data[symbol] = {}
@@ -338,7 +338,7 @@ trackFutureMinutePrices = (pair) => {
 								+ " B:" + numeral(depth_bids[symbol]).format("0.00") 
 								+ " C:" + close 
 								+ " D:%" + numeral(depth_diff[symbol]).format("0.000") 
-								+ " https://www.binance.com/tradeDetail.html?symbol=" + symbol.slice(0, -3) + "_BTC")
+								+ " https://www.binance.com/tradeDetail.html?symbol=" + symbol.replace("BTC","_BTC"))
 							if (send_email) {
 								const mailOptions = {
 									from: '"My NBT Bot" <contact@jsapp.me>',
@@ -350,7 +350,7 @@ trackFutureMinutePrices = (pair) => {
 										+ " B:" + numeral(depth_bids[symbol]).format("0.00") 
 										+ " C:" + close 
 										+ " D:%" + numeral(depth_diff[symbol]).format("0.000"), 
-									text: "https://www.binance.com/tradeDetail.html?symbol=" + symbol.slice(0, -3) + "_BTC \n"
+									text: "https://www.binance.com/tradeDetail.html?symbol=" + symbol.replace("BTC","_BTC") + "\n")
 										+ "  ------------------------------------------ \n"
 										+ tracked_data[symbol][strat.name].map(item => JSON.stringify(item)+"\n") + "\n"
 								};
